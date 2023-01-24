@@ -6,7 +6,7 @@ import time
 # for chromium - webdriver 를 사용한 selenium 사용 시
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.utils import ChromeType
+# from webdriver_manager.utils import ChromeType
 
 # selenium 참조 : https://coding-kindergarten.tistory.com/151
 # scheduler 참조 : https://coding-kindergarten.tistory.com/164
