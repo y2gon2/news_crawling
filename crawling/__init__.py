@@ -5,6 +5,6 @@ if __name__ == "__main__":
     client = MongoClient(mongo_clust0)
     db = client['myweb'].board
 
-    a = db.findAll()
+    a = db.find_one({'email': 'y2gon2@gmail.com'})
     print(a)
 
