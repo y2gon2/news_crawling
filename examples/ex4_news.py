@@ -3,23 +3,19 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import schedule
 import time
-# for chromium - webdriver 를 사용한 selenium 사용 시
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-# from webdriver_manager.utils import ChromeType
 
 # selenium 참조 : https://coding-kindergarten.tistory.com/151
 # scheduler 참조 : https://coding-kindergarten.tistory.com/164
 
-# driver_option = webdriver.ChromeOptions()
-# driver_option.add_argument("headless")
+# chromium in ubuntu 사용시
+driver_options = webdriver.ChromeOptions()
+driver_options.add_argument("headless")
+driver_options.add_argument("--no-sandbox")
+driver_options.add_argument("--disable-dev-shm-usage")
+driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', chrome_options=driver_options)
 
 # for windows - chrome
 # driver = webdriver.Chrome() # webDriver = webdriver.Chrome(options=WEBDRIVER_OPTIONS, executable_path=WEBDRIVER_PATH)
-
-# for ubuntu - chromium
-service = Service("/usr/lib/chromium-browser/chromedriver")
-driver = webdriver.Chrome(service=service)
 
 # 쿠팡 selenium crawling 방지 해제
 # driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {"source": """ Object.defineProperty(navigator, 'webdriver', { get: () => undefined }) """})
