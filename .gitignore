@@ -1,2 +1,3 @@
 chromedriver.exe
 /crawling/data/
+/crawling/__pycache__/
