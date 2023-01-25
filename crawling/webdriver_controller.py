@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-import schedule
 import time
 
 def run_webdriver(keyword):
@@ -127,7 +126,7 @@ def run_webdriver(keyword):
                 }
                 result["news"].append(article_piece)
 
-                print(article_piece)
+                print(article_piece["title"])
                 time.sleep(2)
                 driver.close()
                 driver.switch_to.window(driver.window_handles[0])

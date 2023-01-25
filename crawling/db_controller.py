@@ -1,4 +1,2 @@
-from pymongo import MongoClient
+from crawling import DB
 
-def get_all(db):
-    return db.find()
