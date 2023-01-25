@@ -7,3 +7,5 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 
 driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', chrome_options=chrome_options)
 driver.get("http://www.google.com")
+
+print(driver.current_url)
