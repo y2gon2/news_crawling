@@ -39,15 +39,20 @@ def news_crawling(queue):
 
 def poll_db(queue):
     print('poll_db thread is started!')
+    next_min = int(time.strftime('%M', time.localtime(time.time())))
     while True:
-        second = int(time.strftime('%S', time.localtime(time.time())))
+        cur_min = int(time.strftime('%M', time.localtime(time.time())))
         local_time = time.strftime('%H:%M', time.localtime(time.time()))
 
-        if second % 60 == 0:
-            print('%s time to poll!!' % local_time)
+        if next_min == cur_min:
+            print('%s : time to poll!!' % local_time)
             data = get_database(local_time)
             if data != 0:
                 queue.put(data)
+            if cur_min == 59:
+                next_min = 0
+            else:
+                next_min += 1
 
         time.sleep(1)
 
